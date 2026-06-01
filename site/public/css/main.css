@@ -1,0 +1,550 @@
+/* main.css — Operators Delulu design system */
+/* Matches the vagus tool aesthetic: #050505, Courier, purple/amber */
+
+:root {
+  --bg: #050505;
+  --bg-elevated: rgba(10, 10, 10, 0.95);
+  --border: #1a1a1a;
+  --text: #888;
+  --text-muted: #555;
+  --text-faint: #333;
+  --highlight: #e0e0e0;
+  /* Section accents — each frequency has a color */
+  --accent-0: #9D4EDD;
+  --accent-1: #FF9B54;
+  --accent-2: #EF476F;
+  --accent-3: #118AB2;
+  --accent-4: #FFD166;
+  --accent-5: #7209B7;
+  --accent-6: #06D6A0;
+  --accent-7: #E0AAFF;
+
+  --accent: var(--accent-0);
+  --accent-highlight: #FF9B54;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─── Typography ─── */
+h1 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: normal;
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, var(--accent), var(--accent-highlight));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+}
+
+h2 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: normal;
+  color: var(--accent);
+  margin: 3rem 0 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: normal;
+  color: var(--text);
+  margin: 2rem 0 1rem;
+}
+
+p {
+  margin-bottom: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+a:hover {
+  border-bottom-color: var(--accent);
+}
+
+strong, b {
+  color: var(--highlight);
+  font-weight: normal;
+  background: rgba(224, 224, 224, 0.1);
+  padding: 0.05em 0.3em;
+  border-radius: 2px;
+}
+
+mark {
+  color: var(--highlight);
+  background: rgba(204, 204, 204, 0.12);
+  padding: 0.15em 0.4em;
+  border-radius: 2px;
+  font-weight: normal;
+}
+
+em, i {
+  color: var(--text-muted);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+ul, ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+  font-size: 0.85rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+blockquote {
+  border-left: 2px solid var(--accent);
+  margin: 1.5rem 0;
+  padding: 0.5rem 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ─── Layout ─── */
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 3rem;
+}
+
+/* ─── Page header ─── */
+.page-header {
+  text-align: center;
+  padding: 2rem 0 3rem;
+}
+
+.page-header .subtitle {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ─── Navigation ─── */
+.topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topnav .brand {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+}
+
+.topnav .brand:hover {
+  color: var(--accent);
+  border-bottom-color: transparent;
+}
+
+.topnav .nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.topnav .nav-links a {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+  border: none;
+}
+
+.topnav .nav-links a:hover,
+.topnav .nav-links a.active {
+  color: var(--accent);
+}
+
+/* ─── Index page ─── */
+.terrain-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.terrain-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.terrain-item h3 {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.terrain-item h3 a {
+  color: var(--text);
+  border: none;
+}
+
+.terrain-item h3 a:hover {
+  color: var(--accent);
+}
+
+.terrain-item p {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin: 0.25rem 0 0;
+}
+
+.start-here {
+  border: 1px solid var(--accent);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.start-here h2 {
+  border: none;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  color: var(--accent);
+}
+
+.start-here p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.shortcut-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.shortcut-links a {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.shortcut-links a:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-bottom-color: var(--accent);
+}
+
+.block {
+  margin: 2rem 0;
+}
+
+.block h2 {
+  margin-top: 0;
+}
+
+/* ─── Warning ─── */
+.warning-block {
+  border: 1px solid var(--accent-2);
+  padding: 1.25rem;
+  margin: 2rem 0;
+}
+
+.warning-block h2 {
+  color: var(--accent-2);
+  border-bottom-color: var(--accent-2);
+}
+
+/* ─── Page navigation ─── */
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  gap: 1rem;
+}
+
+.page-nav a {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.page-nav .next {
+  text-align: right;
+}
+
+.page-nav .prev {
+  text-align: left;
+}
+
+/* ─── Footer ─── */
+.footer {
+  text-align: center;
+  padding: 3rem 0 2rem;
+  font-size: 0.6rem;
+  color: var(--text-faint);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.footer p {
+  font-size: 0.6rem;
+  color: var(--text-faint);
+}
+
+/* ─── Section-specific accents ─── */
+body.section-principles { --accent: var(--accent-0); }
+body.section-egregores { --accent: var(--accent-2); }
+body.section-psyche { --accent: var(--accent-1); }
+body.section-dialectic { --accent: var(--accent-3); }
+body.section-crunch { --accent: var(--accent-4); }
+body.section-gateway { --accent: var(--accent-5); }
+body.section-lab { --accent: var(--accent-6); }
+body.section-transcendance { --accent: var(--accent-7); }
+
+/* ─── Fade-in ─── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ─── Resonance Test ─── */
+#resonance-test {
+  margin: 3rem 0;
+}
+
+.test-progress {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.test-progress-bar {
+  width: 100%;
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.test-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.4s ease;
+  border-radius: 1px;
+}
+
+.test-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+}
+
+.test-progress-labels span {
+  transition: color 0.3s;
+}
+
+.test-count-A { color: var(--accent-0) !important; }
+.test-count-B { color: var(--accent-2) !important; }
+.test-count-C { color: var(--accent-1) !important; }
+.test-count-D { color: var(--accent-6) !important; }
+
+.test-q {
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.test-q:last-child {
+  margin-bottom: 0;
+}
+
+.test-q.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.test-q-text {
+  font-size: 0.8rem;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.test-q-text strong {
+  color: var(--accent);
+  background: none;
+  padding: 0;
+}
+
+.test-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.test-ans {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+  line-height: 1.5;
+}
+
+.test-ans:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.test-ans.selected {
+  border-color: var(--accent);
+  color: var(--highlight);
+  background: rgba(255,255,255,0.03);
+}
+
+.test-ans-key {
+  color: var(--accent);
+  margin-right: 0.5em;
+}
+
+.test-prompt {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.test-prompt p {
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+}
+
+.test-result {
+  text-align: center;
+  padding: 3rem 2rem;
+  border: 1px solid var(--accent);
+  margin: 2rem 0;
+  animation: resultFade 1.2s ease;
+}
+
+@keyframes resultFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.test-result-icon {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.test-result h3 {
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  color: var(--highlight);
+}
+
+.test-result p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+  text-align: left;
+  line-height: 1.8;
+}
+
+.test-reset {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.test-reset:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* ─── Mobile ─── */
+@media (max-width: 768px) {
+  .container { padding: 4rem 1rem 2rem; }
+  .topnav .nav-links { display: none; }
+  h1 { font-size: 1rem; }
+  h2 { font-size: 0.85rem; }
+  p, li { font-size: 0.8rem; }
+  .page-nav { flex-direction: column; gap: 0.75rem; }
+  .page-nav .next, .page-nav .prev { text-align: center; }
+}
