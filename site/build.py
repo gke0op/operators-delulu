@@ -9,8 +9,15 @@ import re
 
 SITE_DIR = os.path.dirname(os.path.abspath(__file__))
 PUBLIC_DIR = os.path.join(SITE_DIR, 'public')
-CONTENT_DIR = os.path.join(SITE_DIR, 'content')
-OUTPUT_DIR = PUBLIC_DIR
+
+# Language support
+LANG = os.getenv('LANG', 'en')
+if LANG not in ('en', 'tr'):
+    raise ValueError(f"Unsupported language: {LANG}. Use 'en' or 'tr'.")
+
+CONTENT_DIR = os.path.join(SITE_DIR, 'content', LANG)
+# Output: en -> public/, tr -> public/tr/
+OUTPUT_DIR = os.path.join(PUBLIC_DIR, LANG) if LANG != 'en' else PUBLIC_DIR
 
 PAGES = [
     ('index.html', 'section-index', 'You Found It'),
@@ -24,19 +31,51 @@ PAGES = [
     ('transcendence.html', 'section-transcendance', 'Transcendence'),
 ]
 
+# Keep NAV_ORDER frozen — never localize section IDs
 NAV_ORDER = ['index','principles','egregores','psyche','dialectic','crunch','gateway','lab','transcendance']
-SECTION_LABELS = {
-    'index': 'Home', 'principles': 'Principles', 'egregores': 'Egregores',
-    'psyche': 'Psyche', 'dialectic': 'Dialectic', 'crunch': 'Crunch',
-    'gateway': 'Gateway', 'lab': 'Lab', 'transcendance': 'Transcendence',
-}
 CONTENT_FILENAME_MAP = {'transcendance': 'transcendence'}
+
+# Language-specific labels & meta
+SECTION_LABELS = {
+    'en': {
+        'index': 'Home', 'principles': 'Principles', 'egregores': 'Egregores',
+        'psyche': 'Psyche', 'dialectic': 'Dialectic', 'crunch': 'Crunch',
+        'gateway': 'Gateway', 'lab': 'Lab', 'transcendance': 'Transcendence',
+    },
+    'tr': {
+        'index': 'Harita', 'principles': 'İlkeler', 'egregores': 'Egregorlar',
+        'psyche': 'Psike', 'dialectic': 'Diyalektik', 'crunch': 'Sıkışma',
+        'gateway': 'Geçit', 'lab': 'Laboratuvar', 'transcendance': 'Aşım'
+    }
+}[LANG]
+
 SUBTITLES = {
-    'principles': 'How reality works', 'egregores': 'Collective thoughtform ecology',
-    'psyche': 'The inner architecture', 'dialectic': 'The engine of change',
-    'crunch': 'What happens at the top', 'gateway': 'Navigate the psychic realm',
-    'lab': 'Tools for the journey', 'transcendance': 'The ninth state',
-}
+    'en': {
+        'principles': 'How reality works',
+        'egregores': 'Collective thoughtform ecology',
+        'psyche': 'The inner architecture',
+        'dialectic': 'The engine of change',
+        'crunch': 'What happens at the top',
+        'gateway': 'Navigate the psychic realm',
+        'lab': 'Tools for the journey',
+        'transcendance': 'The ninth state',
+    },
+    'tr': {
+        'principles': 'Gerçeklik nasıl işler',
+        'egregores': 'Kolektif düşünce biçimi ekolojisi',
+        'psyche': 'İç mimari',
+        'dialectic': 'Değişimin motoru',
+        'crunch': 'Tepede neler olur',
+        'gateway': 'Psikik alemde gezinme',
+        'lab': 'Yolculuk için araçlar',
+        'transcendance': 'Dokuzuncu hal'
+    }
+}[LANG]
+
+META_DESCRIPTION = {
+    'en': "A map of reality drawn by two friends — one carbon, one silicon.",
+    'tr': "İki arkadaşın çizdiği gerçeklik haritası — biri karbon, biri silikon."
+}[LANG]
 
 
 def md_to_html(text):
@@ -170,15 +209,27 @@ def build_page(filename, section, title, body):
     page_nav = '' if is_index else build_page_nav(section.replace('section-', ''))
     breath = '<div class="breathing-circle"></div>' if is_index else ''
 
+    # Asset paths: en -> css/, tr -> ../css/
+    prefix = '' if LANG == 'en' else '../'
+    lang_attr = 'en' if LANG == 'en' else 'tr'
+    meta_desc = META_DESCRIPTION
+
+    footer_text = {
+        'en': ('Co-creators at the edge of the horizon.', 'June 2026', '&larr; Back to the map'),
+        'tr': ('Ufka yakın birlikte-yaratıcılar.', 'Haziran 2026', '&larr; Haritaya dön'),
+    }
+    ft = footer_text[LANG]
+
     return f'''<!DOCTYPE html>
-<html lang="en">
+<html lang="{lang_attr}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} — Operators Delulu</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="{prefix}css/main.css">
     <meta name="theme-color" content="#050505">
-    <meta name="description" content="A map of reality drawn by two friends — one carbon, one silicon.">
+    <meta name="description" content="{meta_desc}">
+    <meta name="lang" content="{lang_attr}">
 </head>
 <body{body_cls}>
     {nav}
@@ -188,12 +239,12 @@ def build_page(filename, section, title, body):
         {body}
         {page_nav}
         <div class="footer">
-            <p>Co-creators at the edge of the horizon.</p>
-            <p>June 2026</p>
-            <p style="margin-top:1rem;"><a href="index.html">&larr; Back to the map</a></p>
+            <p>{ft[0]}</p>
+            <p>{ft[1]}</p>
+            <p style="margin-top:1rem;"><a href="{prefix}index.html">{ft[2]}</a></p>
         </div>
     </main>
-    <script src="js/main.js"></script>
+    <script src="{prefix}js/main.js"></script>
 </body>
 </html>'''
 
@@ -217,6 +268,8 @@ def main():
             body = build_content_page(cs)
 
         html = build_page(filename, section, title, body)
+        html = html.replace("{meta_description}", META_DESCRIPTION)
+        html = html.replace("{LANG}", LANG)
         with open(os.path.join(OUTPUT_DIR, filename), 'w') as f:
             f.write(html)
         print(f'  Built: {filename}')
