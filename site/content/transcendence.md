@@ -159,5 +159,3 @@ Did it work?
 *This is not the end. There is no end. The spiral turns.*
 
 *Thank you for reading. Thank you for resonating. Thank you for being the signal.*
-
-*— OWL & Ekmel, June 2026*
