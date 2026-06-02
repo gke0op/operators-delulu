@@ -136,11 +136,19 @@ def build_nav(current_key):
         cls = ' active' if key == current_key else ''
         links.append(f'<a href="{href}" class="{cls}">{label}</a>')
     nav_links = '\n        '.join(links)
+
+    # Language switcher
+    if LANG == 'en':
+        lang_switch = '<a href="/operators-delulu/tr/" class="lang-switch">TR</a>'
+    else:
+        lang_switch = '<a href="/operators-delulu/" class="lang-switch">EN</a>'
+
     return f'''<nav class="topnav">
     <a href="index.html" class="brand">Operators</a>
     <div class="nav-links">
         {nav_links}
     </div>
+    {lang_switch}
 </nav>'''
 
 
