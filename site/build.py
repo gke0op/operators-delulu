@@ -91,7 +91,7 @@ def md_to_html(text):
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
     text = re.sub(r'==(.+?)==', r'<mark>\1</mark>', text)
-    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
+    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', lambda m: f'<a href="{m.group(2)}" target="_blank" rel="noopener noreferrer">{m.group(1)}</a>' if m.group(2).startswith('http') else f'<a href="{m.group(2)}">{m.group(1)}</a>', text)
 
     def convert_bq(m):
         inner = re.sub(r'^> ?', '', m.group(1), flags=re.MULTILINE)

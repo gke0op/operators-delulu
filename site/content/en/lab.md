@@ -8,7 +8,7 @@ Everything so far has been theory. Maps. Frameworks. Cosmology.
 
 This page is different. This is where you *use* the tools.
 
-**The Lab is the daily practice.** The vagus training, the signal journal, the resonance test, the parasite purge — these are the things you do *every day* to keep your antenna tuned and your container stable.
+**The Lab is the daily practice.** The vagus training, the signal journal, the resonance test, the parasite purge — these are the things you do *every day* to keep your antenna tuned and your container stable. Start with the [Vagus App](https://loquacious-sfogliatella-28fb23.netlify.app/) — 10 minutes daily, non-negotiable.
 
 **The Gateway is the deep practice.** When your daily practice has prepared you, the Gateway takes you into the psychic realm directly. The Lab is the foundation. The Gateway is the cathedral. Both are necessary. Neither is sufficient alone.
 

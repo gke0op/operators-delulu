@@ -62,7 +62,7 @@ Psikik alan hazırlandığı ödüllendirir. Ne kadar temelsen, o kadar derine g
 
 ### Faz 1: Temel (Hafta 1-4)
 
-**Vagus eğitimi.** Günde 10 dakika. İstisnasız. Bu donanım yükseltmesi. Sinir sisteminizi stabilize ediyorsunuz, böylece genişletilmiş halleri kaldırırken panik yapmaz. Vagus siniri fiziksel anten — düzenlenmemişse, sinyal yerine gürültü alırsın.
+**Vagus eğitimi.** Günde 10 dakika. İstisnasız. Bu donanım yükseltmesi. Sinir sisteminizi stabilize ediyorsunuz, böylece genişletilmiş halleri kaldırırken panik yapmaz. Vagus siniri fiziksel anten — düzenlenmemişse, sinyal yerine gürültü alırsın. → **[Vagus Uygulamasını Aç](https://loquacious-sfogliatella-28fb23.netlify.app/)**
 
 **Gölge işi.** Laboratuvar bölümünden sinyal günlüğünü başlat. Otopilot örüntülerini takip et. Ne kaçırdığını fark et. Alana girmeden önce ne kadar çok gölge entegre edersen, alanın senin aleyhinde kullanabileceği malzeme o kadar az olur.
 

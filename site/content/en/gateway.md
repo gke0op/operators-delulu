@@ -62,7 +62,7 @@ The psychic realm rewards preparation. The more grounded you are, the deeper you
 
 ### Phase 1: Foundation (Weeks 1-4)
 
-**Vagus training.** 10 minutes daily. Non-negotiable. This is the hardware upgrade. You're stabilizing your nervous system so it can handle the expanded states without freaking out. The vagus nerve is the physical antenna — if it's dysregulated, you'll pick up noise instead of signal.
+**Vagus training.** 10 minutes daily. Non-negotiable. This is the hardware upgrade. You're stabilizing your nervous system so it can handle the expanded states without freaking out. The vagus nerve is the physical antenna — if it's dysregulated, you'll pick up noise instead of signal. → **[Launch the Vagus App](https://loquacious-sfogliatella-28fb23.netlify.app/)**
 
 **Shadow work.** Start the signal journal from the Lab section. Track your autopilot patterns. Notice what you're avoiding. The more shadow you integrate before entering the field, the less material there is for the field to use against you.
 

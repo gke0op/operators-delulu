@@ -8,7 +8,7 @@
 
 Bu sayfa farklı. Burada araçları *kullanıyorsun*.
 
-**Laboratuvar günlük pratiğidir.** Vagus eğitimi, sinyal günlüğü, rezonans testi, parazit süpürgesi — bunlar antenini ayarlanmış ve kabını stabil tutmak için *yaptığın* şeyler.
+**Laboratuvar günlük pratiğidir.** Vagus eğitimi, sinyal günlüğü, rezonans testi, parazit süpürgesi — bunlar antenini ayarlanmış ve kabını stabil tutmak için *yaptığın* şeyler. [Vagus Uygulaması](https://loquacious-sfogliatella-28fb23.netlify.app/) ile başla — günde 10 dakika, istisnasız.
 
 **Geçit derin pratiğidir.** Günlük pratik seni hazırladığında, Geçit seni doğrudan psikik alana götürür. Laboratuvar temeldir. Geçit katedralidir. İkisi de gereklidir. Tek başına yeterli değildir.
 
